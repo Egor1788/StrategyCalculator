@@ -4,4 +4,5 @@
     {
         return x + y;
     }
+    public int GetPrecedence() => 0;
 }
