@@ -14,11 +14,22 @@ public class Calculator
                 { "/", new DivideOperator() },
             };
     }
+
+
+    public IOperator GetOperator(string op)
+    {
+        return _operators[op];
+    }
+
+    public bool IsOperator(string op) => _operators.ContainsKey(op);
+
     public double Run(string op, double i, double j)
     {
         if (!_operators.ContainsKey(op))
             throw new InvalidOperationException($"Invalid operation: '{op}'");
 
-        return _operators[op].Calculate(i, j);
+
+
+        return GetOperator(op).Calculate(i, j);
     }
 }
